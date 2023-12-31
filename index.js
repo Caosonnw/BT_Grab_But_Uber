@@ -120,9 +120,18 @@ document.getElementById("btn_tinhTien").onclick = function () {
       currency: "VND",
     }) + " VNĐ";
   document.getElementById("btn_inHoaDon").onclick = function () {
-    document.getElementById("dg_kmDauTien").innerHTML = tienKmDauTien;
-    document.getElementById("tt_kmDauTien").innerHTML = tienKmDauTien;
-    document.getElementById("dg_kmTofor").innerHTML = tienKMTu1Den19;
+    document.getElementById("dg_kmDauTien").innerHTML = `${tienKmDauTien.toLocaleString({
+      style: "currency",
+      currency: "VND",
+    })}`;
+    document.getElementById("tt_kmDauTien").innerHTML = `${tienKmDauTien.toLocaleString({
+      style: "currency",
+      currency: "VND",
+    })}`;
+    document.getElementById("dg_kmTofor").innerHTML = `${tienKMTu1Den19.toLocaleString({
+      style: "currency",
+      currency: "VND",
+    })}`;
 
     if (soKM > 19) {
       var remainingKM = soKM - 19;
@@ -138,7 +147,10 @@ document.getElementById("btn_tinhTien").onclick = function () {
       document.getElementById("kmAbove").style.display = "table-row";
       document.getElementById("kmTofor").style.display = "table-row";
       document.getElementById("tt_kmTofor").innerHTML = `${
-        (19 - 1) * tienKMTu1Den19
+        ((19 - 1) * tienKMTu1Den19).toLocaleString({
+          style: "currency",
+          currency: "VND",
+        })
       }`;
     } else{
       document.getElementById("kmAbove").style.display = "none";
@@ -148,7 +160,10 @@ document.getElementById("btn_tinhTien").onclick = function () {
       document.getElementById("sd_kmTofor").innerHTML = `${soKM - 1} KM`;
 
       document.getElementById("tt_kmTofor").innerHTML = `${
-        (soKM - 1) * tienKMTu1Den19
+       ((soKM - 1) * tienKMTu1Den19).toLocaleString({
+          style: "currency",
+          currency: "VND",
+       })
       }`;
     }
     if (soKM <= 1) {
@@ -157,14 +172,26 @@ document.getElementById("btn_tinhTien").onclick = function () {
       document.getElementById("kmTofor").style.display = "table-row";
     }
   };
-  document.getElementById("dg_kmAbove").innerHTML = tienKMTren19;
+  document.getElementById("dg_kmAbove").innerHTML = `${tienKMTren19.toLocaleString({
+    style: "currency",
+    currency: "VND",
+  })}`;
   document.getElementById("tt_kmAbove").innerHTML = `${
-    (soKM - 19) * tienKMTren19
+    ((soKM - 19) * tienKMTren19).toLocaleString({
+      style: "currency",
+      currency: "VND",
+    })
   }`;
 
   document.getElementById("sd_WTime").innerHTML = soLanCho;
-  document.getElementById("dg_WTime").innerHTML = giaCho;
-  document.getElementById("tt_WTime").innerHTML = tienCho;
+  document.getElementById("dg_WTime").innerHTML = `${giaCho.toLocaleString({
+    style: "currency",
+    currency: "VND",
+  })}`;
+  document.getElementById("tt_WTime").innerHTML = `${tienCho.toLocaleString({
+    style: "currency",
+    currency: "VND",
+  })}`;
 
   document.getElementById(
     "tongTien"
@@ -175,9 +202,7 @@ document.getElementById("btn_tinhTien").onclick = function () {
 };
 // Phạm vi sử dụng của biến: Global Scope và Function Scope
 document.getElementById("btn_download").addEventListener("click", function () {
-  // Thực hiện các bước để tạo và tải file PDF ở đây
 
-  // Ví dụ: Tạo một blob và tải về
   var blob = new Blob(["Dữ liệu PDF ở đây"], { type: "application/pdf" });
   var link = document.createElement("a");
   link.href = window.URL.createObjectURL(blob);
