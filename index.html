@@ -156,7 +156,7 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog" id="invoice">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Hóa đơn Uber</h5>
@@ -205,7 +205,9 @@
                 <td id="tt_WTime"></td>
               </tr>
               <tr>
-                <th colspan="4" class="table_tongTien" id="tongTien">Tổng tiền:</th>
+                <th colspan="4" class="table_tongTien" id="tongTien">
+                  Tổng tiền:
+                </th>
               </tr>
             </table>
           </div>
@@ -217,7 +219,9 @@
             >
               Đóng
             </button>
-            <button type="button" class="btn btn-primary" id="btn_download">Tải hóa đơn</button>
+            <button type="button" class="btn btn-primary" id="btn_download">
+              Tải hóa đơn
+            </button>
           </div>
         </div>
       </div>
@@ -234,6 +238,12 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
     <script src="js/map-custom.js"></script>
     <!--===============================================================================================-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./index.js"></script>
   </body>
 </html>

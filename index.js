@@ -201,11 +201,18 @@ document.getElementById("btn_tinhTien").onclick = function () {
   })} VNĐ`;
 };
 // Phạm vi sử dụng của biến: Global Scope và Function Scope
-document.getElementById("btn_download").addEventListener("click", function () {
-
-  var blob = new Blob(["Dữ liệu PDF ở đây"], { type: "application/pdf" });
-  var link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
-  link.download = "hoa-don-uber.pdf";
-  link.click();
-});
+window.onload = function() {
+  document.getElementById("btn_download").addEventListener("click",() => {
+    const invoice = this.document.getElementById('invoice');
+    console.log(invoice);
+    console.log(window);
+    var opt = {
+      margin: 1,
+      filename: 'hoadonUber.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().from(invoice).set(opt).save();
+  });
+}
